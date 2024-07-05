@@ -12,6 +12,7 @@ import {
   Button,
   useDisclosure,
   useToast,
+  Tooltip,
 } from "@chakra-ui/react";
 import {
   getDownloadURL,
@@ -258,21 +259,23 @@ const Profile = () => {
           hidden
           accept="image/*"
         />
-        <img
-          className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2"
-          src={formData.avatar || currentUser.avatar}
-          alt="profile"
-          onClick={() => fileRef.current.click()}
-        />
+        <Tooltip label="Click for update picture" placement="right">
+          <img
+            className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2"
+            src={formData.avatar || currentUser.avatar}
+            alt="profile"
+            onClick={() => fileRef.current.click()}
+          />
+        </Tooltip>
         <p className="text-sm self-center">
           {fileUploadError ? (
-            <span className="text-red-700">
+            <span className="text-red-600">
               Error Image upload (image must be less than 2 mb)
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
-            <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
+            <span className="text-slate-600">{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className="text-green-700">Image successfully uploaded!</span>
+            <span className="text-green-600">Image successfully uploaded!</span>
           ) : (
             ""
           )}
@@ -303,12 +306,12 @@ const Profile = () => {
         />
         <button
           disabled={loading}
-          className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80"
+          className="bg-slate-600 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80"
         >
           {loading ? "Loading..." : "Update"}
         </button>
         <Link
-          className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
+          className="bg-green-600 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
           to={"/create-listing"}
         >
           Create Listing
@@ -365,15 +368,15 @@ const Profile = () => {
           Sign Out
         </span>
       </div>
-      <button onClick={handleShowListings} className="text-green-700 w-full">
+      <button onClick={handleShowListings} className="text-green-600 w-full">
         Show Listings
       </button>
-      <p className="text-red-700 mt-5">
+      <p className="text-red-600 mt-5">
         {showListingsError ? "Error showing listings" : ""}
       </p>
       {userListings && userListings.length > 0 && (
         <div className="flex flex-col gap-4">
-          <h1 className="text-center mt-7 text-2xl font-semibold text-slate-700">
+          <h1 className="text-center mt-7 text-2xl font-semibold text-slate-600">
             Your Listing
           </h1>
           {userListings.map((listing) => (
@@ -391,19 +394,21 @@ const Profile = () => {
                 </Link>
                 <Link
                   to={`/listing/${listing._id}`}
-                  className="flex-1 text-slate-700 font-semibold hover:underline truncate"
+                  className="flex-1 text-slate-600 font-semibold hover:underline truncate"
                 >
                   <p className="">{listing.name}</p>
                 </Link>
                 <div className="flex flex-col items-center">
                   <button
-                    className="text-red-700 uppercase"
+                    className="text-red-600 uppercase font-semibold text-sm"
                     onClick={() => handleListingDelete(listing._id)}
                   >
                     Delete
                   </button>
                   <Link to={`/update-listing/${listing._id}`}>
-                    <button className="text-green-700 uppercase">Edit</button>
+                    <button className="text-green-600 uppercase font-semibold text-sm">
+                      Edit
+                    </button>
                   </Link>
                 </div>
               </div>

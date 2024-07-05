@@ -2,6 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { Tooltip } from "@chakra-ui/react";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -42,9 +43,16 @@ export default function Header() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button>
-            <FaSearch className="text-slate-600" />
-          </button>
+          <Tooltip
+            hasArrow
+            label="Search Your Interest"
+            bg="gray.300"
+            color="black"
+          >
+            <button>
+              <FaSearch className="text-slate-600" />
+            </button>
+          </Tooltip>
         </form>
         <ul className="flex gap-4">
           <Link to="/">
@@ -59,11 +67,13 @@ export default function Header() {
           </Link>
           <Link to="/profile">
             {currentUser ? (
-              <img
-                className="rounded-full h-7 w-7 object-cover"
-                src={currentUser.avatar}
-                alt="profile"
-              />
+              <Tooltip label={currentUser.username} placement="bottom">
+                <img
+                  className="rounded-full h-7 w-7 object-cover"
+                  src={currentUser.avatar}
+                  alt="profile"
+                />
+              </Tooltip>
             ) : (
               <button className="bg-slate-700 hover:bg-slate-600 text-white font-semibold px-4 rounded h-7">
                 Login
