@@ -40,8 +40,7 @@ export default function Home() {
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
-        console.log();
-        error;
+        console.log(error);
       }
     };
     fetchOfferListings();
