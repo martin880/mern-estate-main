@@ -306,12 +306,12 @@ const Profile = () => {
         />
         <button
           disabled={loading}
-          className="bg-slate-600 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80"
+          className="bg-slate-600 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80 font-semibold"
         >
           {loading ? "Loading..." : "Update"}
         </button>
         <Link
-          className="bg-green-600 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
+          className="bg-green-600 text-white p-3 rounded-lg uppercase text-center hover:opacity-95 font-semibold"
           to={"/create-listing"}
         >
           Create Listing
@@ -320,7 +320,7 @@ const Profile = () => {
       <div className="flex justify-between mt-5">
         <span
           onClick={onOpen}
-          className=" text-red-600  font-semibold cursor-pointer"
+          className=" text-red-600 font-semibold cursor-pointer"
         >
           Delete Account
         </span>
@@ -368,7 +368,10 @@ const Profile = () => {
           Sign Out
         </span>
       </div>
-      <button onClick={handleShowListings} className="text-green-600 w-full">
+      <button
+        onClick={handleShowListings}
+        className="text-green-600 w-full font-semibold"
+      >
         Show Listings
       </button>
       <p className="text-red-600 mt-5">

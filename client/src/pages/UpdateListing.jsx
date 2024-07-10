@@ -364,7 +364,7 @@ const CreateListing = () => {
               type="button"
               disabled={uploading}
               onClick={handleImagesSubmit}
-              className="p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80"
+              className="p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80 font-semibold"
             >
               {uploading ? "Uploading..." : "Upload"}
             </button>
@@ -383,7 +383,7 @@ const CreateListing = () => {
                 <button
                   type="button"
                   onClick={() => handleRemoveImages(index)}
-                  className="p-3 text-red-700 rounded-lg uppercase hover:opacity-75"
+                  className="p-3 text-red-700 rounded-lg uppercase hover:opacity-75 font-semibold"
                 >
                   Delete
                 </button>
@@ -391,9 +391,12 @@ const CreateListing = () => {
             ))}
           <button
             disabled={loading || uploading}
-            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80 font-semibold"
           >
             {loading ? "Updating..." : "Update Listing"}
+          </button>
+          <button className="p-3 bg-orange-600 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80 font-semibold">
+            {loading ? "Canceling..." : "Cancel"}
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>
