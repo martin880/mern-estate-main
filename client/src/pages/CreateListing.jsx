@@ -180,6 +180,16 @@ const CreateListing = () => {
     }
   };
 
+  const handleCancel = () => {
+    toast({
+      title: "Cancel to create a listing",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+    navigate("/profile"); // Navigates to a specific route
+  };
+
   return (
     <main className="p-3 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold text-center my-7">Create a Listing</h1>
@@ -368,7 +378,7 @@ const CreateListing = () => {
                 <button
                   type="button"
                   onClick={() => handleRemoveImages(index)}
-                  className="p-3 text-red-700 rounded-lg uppercase hover:opacity-75"
+                  className="p-3 text-red-700 rounded-lg uppercase font-semibold hover:opacity-75"
                 >
                   Delete
                 </button>
@@ -379,6 +389,12 @@ const CreateListing = () => {
             className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
             {loading ? "Creating..." : "Create Listing"}
+          </button>
+          <button
+            onClick={handleCancel}
+            className="p-3 bg-orange-500 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80 font-semibold"
+          >
+            Cancel
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>

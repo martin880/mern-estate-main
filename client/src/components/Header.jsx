@@ -75,7 +75,7 @@ export default function Header() {
                 />
               </Tooltip>
             ) : (
-              <button className="bg-slate-700 hover:bg-slate-600 text-white font-semibold px-4 rounded h-7">
+              <button className="bg-slate-700 hover:shadow-lg shadow-blue-400 text-white font-semibold px-4 rounded h-7">
                 Login
               </button>
             )}

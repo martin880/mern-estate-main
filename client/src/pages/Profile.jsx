@@ -363,7 +363,7 @@ const Profile = () => {
         </AlertDialog>
         <span
           onClick={handleSignOut}
-          className=" text-red-600 font-semibold cursor-pointer"
+          className=" text-red-600 font-semibold cursor-pointer hover:underline"
         >
           Sign Out
         </span>
@@ -403,13 +403,13 @@ const Profile = () => {
                 </Link>
                 <div className="flex flex-col items-center">
                   <button
-                    className="text-red-600 uppercase font-semibold text-sm"
+                    className="text-red-600 uppercase font-semibold text-sm hover:underline"
                     onClick={() => handleListingDelete(listing._id)}
                   >
                     Delete
                   </button>
                   <Link to={`/update-listing/${listing._id}`}>
-                    <button className="text-green-600 uppercase font-semibold text-sm">
+                    <button className="text-green-600 uppercase font-semibold text-sm hover:underline">
                       Edit
                     </button>
                   </Link>

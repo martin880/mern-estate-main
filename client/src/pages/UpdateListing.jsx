@@ -11,7 +11,7 @@ import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-const CreateListing = () => {
+const UpdateListing = () => {
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const params = useParams();
@@ -193,6 +193,16 @@ const CreateListing = () => {
       });
       setLoading(false);
     }
+  };
+
+  const handleCancel = () => {
+    toast({
+      title: "Cancel update",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+    navigate(`/listing/${params.listingId}`);
   };
 
   return (
@@ -395,8 +405,11 @@ const CreateListing = () => {
           >
             {loading ? "Updating..." : "Update Listing"}
           </button>
-          <button className="p-3 bg-orange-600 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80 font-semibold">
-            {loading ? "Canceling..." : "Cancel"}
+          <button
+            onClick={handleCancel}
+            className="p-3 bg-orange-500 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80 font-semibold"
+          >
+            Cancel
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>
@@ -405,4 +418,4 @@ const CreateListing = () => {
   );
 };
 
-export default CreateListing;
+export default UpdateListing;
