@@ -121,7 +121,9 @@ export default function Listing() {
               </button>
             </div>
             <p className="text-slate-800 text-justify">
-              <span className="font-semibold text-black">Description - </span>
+              <span className="font-semibold text-black font-sans">
+                Description -{" "}
+              </span>
               {listing.description}
             </p>
             <ul className="text-green-700 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6">
