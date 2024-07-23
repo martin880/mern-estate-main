@@ -282,7 +282,7 @@ const CreateListing = () => {
                 type="number"
                 id="bedrooms"
                 min="1"
-                max="10"
+                max="1000"
                 required
                 className="p-2 border border-gray-300 rounded-lg"
                 onChange={handleChange}
@@ -295,7 +295,7 @@ const CreateListing = () => {
                 type="number"
                 id="bathrooms"
                 min="1"
-                max="10"
+                max="100"
                 required
                 className="p-2 border border-gray-300 rounded-lg"
                 onChange={handleChange}
@@ -307,8 +307,8 @@ const CreateListing = () => {
               <input
                 type="number"
                 id="regularPrice"
-                min="50"
-                max="1000000"
+                min="5000"
+                max="100000000"
                 required
                 className="p-2 border border-gray-300 rounded-lg"
                 onChange={handleChange}

@@ -120,7 +120,7 @@ export default function Listing() {
                 <Link to={"/search"}>Back To Listing Page</Link>
               </button>
             </div>
-            <p className="text-slate-800">
+            <p className="text-slate-800 text-justify">
               <span className="font-semibold text-black">Description - </span>
               {listing.description}
             </p>

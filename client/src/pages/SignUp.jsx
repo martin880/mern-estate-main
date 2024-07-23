@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
+import { useToast } from "@chakra-ui/react";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const toast = useToast();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -33,6 +36,12 @@ export default function SignUp() {
       }
       setLoading(false);
       setError(null);
+      toast({
+        title: "Sign Up Success",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
       navigate("/sign-in");
     } catch (error) {
       setLoading(false);
