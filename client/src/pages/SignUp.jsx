@@ -10,6 +10,31 @@ export default function SignUp() {
   const navigate = useNavigate();
   const toast = useToast();
 
+  const validatePassword = (password) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (password.length < minLength) {
+      return "Password must be at least 8 characters long.";
+    }
+    if (!hasUpperCase) {
+      return "Password must contain at least one uppercase letter.";
+    }
+    if (!hasLowerCase) {
+      return "Password must contain at least one lowercase letter.";
+    }
+    if (!hasNumber) {
+      return "Password must contain at least one number.";
+    }
+    if (!hasSpecialChar) {
+      return "Password must contain at least one special character.";
+    }
+    return null;
+  };
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,6 +43,11 @@ export default function SignUp() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const passwordError = validatePassword(formData.password);
+    if (passwordError) {
+      setError(passwordError);
+      return;
+    }
     try {
       setLoading(true);
       const res = await fetch("/api/auth/signup", {
@@ -73,6 +103,7 @@ export default function SignUp() {
           id="password"
           onChange={handleChange}
         />
+        {error && <p className="text-red-500 mt-5">{error}</p>}
 
         <button
           disabled={loading}
@@ -88,7 +119,6 @@ export default function SignUp() {
           <span className="text-blue-600 font-semibold">Sign in</span>
         </Link>
       </div>
-      {error && <p className="text-red-500 mt-5">{error}</p>}
     </div>
   );
 }

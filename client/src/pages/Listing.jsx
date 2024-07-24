@@ -98,7 +98,7 @@ export default function Listing() {
             </p>
             <p className="flex items-center mt-6 gap-2 text-slate-600 text-sm font-semibold">
               <FaMapMarkerAlt className="text-green-700" />
-              {listing.address}
+              {listing.address}, {listing.city}, {listing.country}
               {currentUser && listing.userRef === currentUser._id && (
                 <Link to={`/update-listing/${listing._id}`}>
                   <button className="text-green-600 font-semibold text-sm flex ml-6 items-end hover:text-green-700">
