@@ -110,32 +110,36 @@ const CreateListing = () => {
   };
 
   const handleChange = (e) => {
-    if (e.target.id === "sale" || e.target.id === "rent") {
+    const { id, value, checked, type } = e.target;
+
+    // Menghapus tanda koma dan tanda baca lainnya untuk input address
+    if (id === "address" || id === "city" || id === "country") {
+      const filteredValue = value.replace(/[,.!?;:()#@%&*$^+-_=]/g, "");
       setFormData({
         ...formData,
-        type: e.target.id,
+        [id]: filteredValue,
+      });
+      return;
+    }
+
+    if (id === "sale" || id === "rent") {
+      setFormData({
+        ...formData,
+        type: id,
       });
     }
 
-    if (
-      e.target.id === "parking" ||
-      e.target.id === "furnished" ||
-      e.target.id === "offer"
-    ) {
+    if (id === "parking" || id === "furnished" || id === "offer") {
       setFormData({
         ...formData,
-        [e.target.id]: e.target.checked,
+        [id]: checked,
       });
     }
 
-    if (
-      e.target.type === "number" ||
-      e.target.type === "text" ||
-      e.target.type === "textarea"
-    ) {
+    if (type === "number" || type === "text" || type === "textarea") {
       setFormData({
         ...formData,
-        [e.target.id]: e.target.value,
+        [id]: value,
       });
     }
   };

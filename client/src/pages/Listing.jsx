@@ -15,6 +15,7 @@ import {
   FaShare,
 } from "react-icons/fa";
 import Contact from "../components/Contact";
+import { FaRegEdit } from "react-icons/fa";
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 
@@ -89,20 +90,20 @@ export default function Listing() {
             </p>
           )}
           <div className="flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4">
-            <p className="text-2xl font-semibold">
+            <p className="text-2xl font-semibold px-2 py-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-sky-500 rounded-md text-white">
               {listing.name} - ${" "}
               {listing.offer
                 ? listing.discountPrice.toLocaleString("en-US")
                 : listing.regularPrice.toLocaleString("en-US")}
               {listing.type === "rent" && " / month"}
             </p>
-            <p className="flex items-center mt-6 gap-2 text-slate-600 text-sm font-semibold">
+            <p className="flex items-center mt-6 gap-2 text-slate-600 text-sm font-semibold capitalize">
               <FaMapMarkerAlt className="text-green-700" />
               {listing.address}, {listing.city}, {listing.country}
               {currentUser && listing.userRef === currentUser._id && (
                 <Link to={`/update-listing/${listing._id}`}>
                   <button className="text-green-600 font-semibold text-sm flex ml-6 items-end hover:text-green-700">
-                    Edit
+                    <FaRegEdit className="flex flex-row w-5 h-5 mr-1" /> Edit
                   </button>
                 </Link>
               )}

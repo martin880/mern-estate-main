@@ -21,6 +21,8 @@ const UpdateListing = () => {
     name: "",
     description: "",
     address: "",
+    city: "",
+    country: "",
     type: "rent",
     bedrooms: 1,
     bathrooms: 1,
@@ -123,32 +125,36 @@ const UpdateListing = () => {
   };
 
   const handleChange = (e) => {
-    if (e.target.id === "sale" || e.target.id === "rent") {
+    const { id, value, checked, type } = e.target;
+
+    // Menghapus tanda koma dan tanda baca lainnya untuk input address
+    if (id === "address" || id === "city" || id === "country") {
+      const filteredValue = value.replace(/[,.!?;:()#@%&*$^+-_=]/g, "");
       setFormData({
         ...formData,
-        type: e.target.id,
+        [id]: filteredValue,
+      });
+      return;
+    }
+
+    if (id === "sale" || id === "rent") {
+      setFormData({
+        ...formData,
+        type: id,
       });
     }
 
-    if (
-      e.target.id === "parking" ||
-      e.target.id === "furnished" ||
-      e.target.id === "offer"
-    ) {
+    if (id === "parking" || id === "furnished" || id === "offer") {
       setFormData({
         ...formData,
-        [e.target.id]: e.target.checked,
+        [id]: checked,
       });
     }
 
-    if (
-      e.target.type === "number" ||
-      e.target.type === "text" ||
-      e.target.type === "textarea"
-    ) {
+    if (type === "number" || type === "text" || type === "textarea") {
       setFormData({
         ...formData,
-        [e.target.id]: e.target.value,
+        [id]: value,
       });
     }
   };
@@ -239,6 +245,24 @@ const UpdateListing = () => {
             onChange={handleChange}
             value={formData.address}
           />
+          <input
+            type="text"
+            placeholder="City"
+            className="border p-3 rounded-lg"
+            id="city"
+            required
+            onChange={handleChange}
+            value={formData.city}
+          />
+          <input
+            type="text"
+            placeholder="Country"
+            className="border p-3 rounded-lg"
+            id="country"
+            required
+            onChange={handleChange}
+            value={formData.country}
+          />
           <div className="flex gap-6 flex-wrap">
             <div className="flex gap-2">
               <input
@@ -297,7 +321,7 @@ const UpdateListing = () => {
                 type="number"
                 id="bedrooms"
                 min="1"
-                max="10"
+                max="1000"
                 required
                 className="p-2 border border-gray-300 rounded-lg"
                 onChange={handleChange}
@@ -310,7 +334,7 @@ const UpdateListing = () => {
                 type="number"
                 id="bathrooms"
                 min="1"
-                max="10"
+                max="100"
                 required
                 className="p-2 border border-gray-300 rounded-lg"
                 onChange={handleChange}
@@ -322,8 +346,8 @@ const UpdateListing = () => {
               <input
                 type="number"
                 id="regularPrice"
-                min="50"
-                max="1000000"
+                min="5000"
+                max="100000000"
                 required
                 className="p-2 border border-gray-300 rounded-lg"
                 onChange={handleChange}
