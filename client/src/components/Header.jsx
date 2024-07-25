@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Tooltip } from "@chakra-ui/react";
-import myImage from "../img/smart-home.png";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -33,7 +32,6 @@ export default function Header() {
               Martin Real
             </span>
             <span className="text-slate-700 py-1 ml-1">Estate</span>
-            <img src={myImage} alt="Logo" className="mx-1 w-9 h-9" />
           </h1>
         </Link>
         <form

@@ -5,6 +5,7 @@ import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
+import buildingImage from "../img/4263370.jpg";
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
@@ -49,11 +50,18 @@ export default function Home() {
     <div>
       {/* top */}
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
-        <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
-          Discover your next <span className="text-slate-500">ideal</span>
-          <br />
-          location effortlessly
-        </h1>
+        <div className="flex items-center gap-4">
+          <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl flex-1">
+            Discover your next <span className="text-slate-500">ideal</span>
+            <br />
+            location effortlessly
+          </h1>
+          <img
+            src={buildingImage}
+            alt="Building"
+            className="object-fit h-48 w-96 lg:w-100 lg:h-auto"
+          />
+        </div>
         <div className="text-gray-500 text-xs sm:text-sm">
           Martin Real Estate is the ultimate destination to find your next ideal
           home.
