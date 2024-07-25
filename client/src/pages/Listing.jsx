@@ -152,7 +152,11 @@ export default function Listing() {
               </li>
               <li className="flex items-center gap-1 whitespace-nowrap ">
                 <MdOutlinePhoneIphone className="text-lg" />
-                {listing.phoneNumber}
+                {listing.phoneNumber ? (
+                  <span>{listing.phoneNumber}</span>
+                ) : (
+                  <span>No contact number provided</span>
+                )}
               </li>
             </ul>
             {currentUser && listing.userRef !== currentUser._id && !contact && (

@@ -36,6 +36,13 @@ export const signup = async (req, res, next) => {
     return res.status(400).json({ success: false, message: passwordError });
   }
 
+  if (phoneNumber && phoneNumber.length > 12) {
+    return res.status(400).json({
+      success: false,
+      message: "Phone number should not exceed 12 characters",
+    });
+  }
+
   const hashedPassword = bcryptjs.hashSync(password, 10);
   const newUser = new User({
     username,

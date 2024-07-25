@@ -17,6 +17,13 @@ export const updateUser = async (req, res, next) => {
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
     }
 
+    if (req.body.phoneNumber && req.body.phoneNumber.length > 12) {
+      return res.status(400).json({
+        success: false,
+        message: "Phone number should not exceed 12 characters",
+      });
+    }
+
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
       {
