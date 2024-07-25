@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Tooltip } from "@chakra-ui/react";
-import myImage from "../img/residential.png";
+import myImage from "../img/smart-home.png";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -29,11 +29,11 @@ export default function Header() {
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-500 rounded-md text-white">
-              Martin Estate
+            <span className="px-2 py-1 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 rounded-md text-white">
+              Martin Real
             </span>
+            <span className="text-slate-700 py-1">Estate</span>
             <img src={myImage} alt="Logo" className="mx-1 w-9 h-9" />
-            {/* <span className="text-slate-700 py-1">Estate</span> */}
           </h1>
         </Link>
         <form

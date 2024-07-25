@@ -55,7 +55,7 @@ export default function Home() {
           location effortlessly
         </h1>
         <div className="text-gray-500 text-xs sm:text-sm">
-          Martin Estate is the ultimate destination to find your next ideal
+          Martin Real Estate is the ultimate destination to find your next ideal
           home.
           <br />
           We offer a diverse selection of properties for your consideration.
