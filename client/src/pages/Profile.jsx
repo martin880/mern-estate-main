@@ -298,6 +298,14 @@ const Profile = () => {
           onChange={handleChange}
         />
         <input
+          type="number"
+          id="phoneNumber"
+          placeholder="Phone Number"
+          defaultValue={currentUser.phoneNumber}
+          className="border p-3 rounded-lg"
+          onChange={handleChange}
+        />
+        <input
           type="password"
           id="password"
           placeholder="password"

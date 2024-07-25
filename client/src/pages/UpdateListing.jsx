@@ -20,6 +20,7 @@ const UpdateListing = () => {
     imageUrls: [],
     name: "",
     description: "",
+    phoneNumber: "",
     address: "",
     city: "",
     country: "",
@@ -235,6 +236,15 @@ const UpdateListing = () => {
             required
             onChange={handleChange}
             value={formData.description}
+          />
+          <textarea
+            type="number"
+            placeholder="Phone Number"
+            className="border p-3 rounded-lg"
+            id="phoneNumber"
+            required
+            onChange={handleChange}
+            value={formData.phoneNumber}
           />
           <input
             type="text"

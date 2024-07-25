@@ -29,7 +29,7 @@ const validatePassword = (password) => {
 };
 
 export const signup = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, phoneNumber, password } = req.body;
 
   const passwordError = validatePassword(password);
   if (passwordError) {
@@ -37,7 +37,12 @@ export const signup = async (req, res, next) => {
   }
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
-  const newUser = new User({ username, email, password: hashedPassword });
+  const newUser = new User({
+    username,
+    email,
+    phoneNumber,
+    password: hashedPassword,
+  });
   try {
     await newUser.save();
     res.status(201).json("User created successfully!");
