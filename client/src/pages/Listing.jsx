@@ -90,7 +90,7 @@ export default function Listing() {
             </p>
           )}
           <div className="flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4">
-            <p className="text-2xl font-semibold px-2 py-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-sky-500 rounded-md text-white">
+            <p className="text-2xl font-semibold px-2 py-1 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 rounded-md text-white">
               {listing.name} - ${" "}
               {listing.offer
                 ? listing.discountPrice.toLocaleString("en-US")
