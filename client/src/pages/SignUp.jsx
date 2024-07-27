@@ -100,7 +100,7 @@ export default function SignUp() {
           type="number"
           placeholder="Enter Phone Number"
           className="border p-3 rounded-lg"
-          id="email"
+          id="phoneNumber"
           onChange={handleChange}
         />
         <input
